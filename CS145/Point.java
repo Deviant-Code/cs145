@@ -2,7 +2,7 @@
 // Seventh version: Immutable.
 // Class invariant: x >= 0 && y >= 0.
 
-public class Point {
+public class Point implements Comparable <Point> {
     private int x;
     private int y;
 
@@ -57,5 +57,16 @@ public class Point {
     // pre: x + dx >= 0 && y + dy >= 0
     public Point translate(int dx, int dy) {
         return new Point(x + dx, y + dy);
+    }
+    
+    public int compareTo (Point other) {
+            if(this.x != other.x){
+                  return this.x - other.x;
+            } else if(this.y != other.y){
+                  return this.y - other.y;
+            } else {
+                   return 0;
+            }
+                
     }
 }
